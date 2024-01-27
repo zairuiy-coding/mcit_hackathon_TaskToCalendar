@@ -16,16 +16,47 @@
         <!-- Task items will be appended here -->
     </div>
 
+    <!-- 新增的按钮部分 -->
+    <div class="row" id="buttonouterrow">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row" id="buttonsrow">
+                <div class="col-4">
+                    <div class="row">
+                        <p class='text-center'><strong>Calendar (.ics)</strong></p>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" id="submitbutton1" name="submitbutton" value="ical" class="btn btn-floating" style="background-color:#826AED;"
+                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Get a Calendar file of your upcoming Canvas assignments!">
+                                <i class="fas fa-calendar-alt" id="calendaricon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <p class='text-center'><strong>To-Do List</strong></p>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" id="submitbutton2" name="submitbutton" value="todolist" class="btn btn-floating" style="background-color:#C879FF;"
+                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Generate a To-Do List of your upcoming Canvas assignments!">
+                                <i class="fas fa-clipboard-list" id="clipboardicon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="clippingModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Edit Task Details</h2>
             <label for="taskName">Task Name:</label>
             <input type="text" id="taskName" name="taskName">
-
-            <!-- Added button and textarea for autoFillTaskEditor -->
-            <textarea id="pageContent"></textarea>
-            <button onclick="autoFillTaskEditor(document.getElementById('pageContent').value)">Generate Task and Calendar File</button>
 
             <label for="courseName">Course Name:</label>
             <input type="text" id="courseName" name="courseName">
