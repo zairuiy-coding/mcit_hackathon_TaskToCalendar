@@ -23,6 +23,10 @@
             <label for="taskName">Task Name:</label>
             <input type="text" id="taskName" name="taskName">
 
+            <!-- Added button and textarea for autoFillTaskEditor -->
+            <textarea id="pageContent"></textarea>
+            <button onclick="autoFillTaskEditor(document.getElementById('pageContent').value)">Generate Task and Calendar File</button>
+
             <label for="courseName">Course Name:</label>
             <input type="text" id="courseName" name="courseName">
 
