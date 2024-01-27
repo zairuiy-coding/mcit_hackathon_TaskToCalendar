@@ -1,3 +1,10 @@
+// Add a listener to listen for a message from the popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "clipPage") {
+      scrapePageForAssignmentInfo();
+  }
+});
+
 function extractAssignmentFromURL(url) {
   // Extract the last segment of the URL
   const urlPattern = /\/([^\/]+)\/?$/;
@@ -48,14 +55,28 @@ function scrapePageForAssignmentInfo() {
   console.log('Due Date:', dueDate);
   console.log('Course Name:', courseName);
 
-  // Send the scraped data to the background script if dueDate is found
+  // Send the scraped data to the background script if any information is found
   if (assignmentName || dueDate || courseName) {
-      chrome.runtime.sendMessage({
-          action: 'processData',
-          data: { assignmentName, dueDate }
-      });
-  }
+    const message = {
+        action: "processData",
+        data: { assignmentName, dueDate, courseName }
+    };
+    chrome.runtime.sendMessage(message, function(response) {
+        if (chrome.runtime.lastError) {
+            console.error("Error sending message:", chrome.runtime.lastError.message);
+        } else {
+            console.log("Message sent from content.js:", message);
+            if (response) {
+                console.log("Response received:", response);
+            }
+        }
+    });
+} else {
+    console.log("No relevant information found to send.");
+}
+
+  
 }
 
 // Execute the scrape function when the page loads
-window.onload = scrapePageForAssignmentInfo;
+// window.onload = scrapePageForAssignmentInfo;

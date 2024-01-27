@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     clipButton.onclick = function() {
         modal.style.display = 'block';
+
+        // Send message to content script to start scraping when 'Clip Page' is clicked
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {action: "clipPage"});
+        });
     };
 
     closeSpan.onclick = function() {
@@ -17,6 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         }
     };
+
+
+    // Listener for receiving messages from background.js
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        if (request.action === "updatePopupForm") {
+
+            console.log("message recieved from content.js");
+
+            // Populate the form fields with received data
+            document.getElementById('taskName').value = request.data.assignmentName || '';
+            document.getElementById('courseName').value = request.data.courseName || '';
+            document.getElementById('dueDate').value = request.data.dueDate || '';
+            // You can also update the 'notes' field if necessary
+        }
+    });
+
+
 
     // Save button logic
     const saveBtn = document.getElementById('saveBtn');
