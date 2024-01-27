@@ -56,6 +56,12 @@ async function autoFillTaskEditer(pageContent) {
         document.getElementById('dueDate').value = taskDetails.dueDate || ''; // Make sure the date is in 'YYYY-MM-DD' format
         document.getElementById('notes').value = taskDetails.notes || '';
 
+        // Now generate the ICS content using the details
+        const icsContent = createICSContent(taskDetails);
+
+        // Trigger download of the ICS file
+        downloadICSFile(icsContent, `${taskDetails.taskName}.ics`);
+
     } catch (error) {
         console.error('autoFillTaskEditer error:', error);
         // Handle the error (e.g., show an error message to the user)
@@ -64,4 +70,40 @@ async function autoFillTaskEditer(pageContent) {
     
     // You would call autoFillTaskEditer like this, passing the page content:
     // autoFillTaskEditer('The page content that needs to be sent to OpenAI API');
+
+async function createICSContent(taskDetails) {
+  // Convert due date to the ICS format
+  // Example dueDate: '2024-02-20 23:59'
+  const dueDateTime = new Date(taskDetails.dueDate);
+  const icsDueDate = dueDateTime.toISOString().replace(/-|:|\.\d\d\d/g, '');
+
+  // Create the .ics content
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'BEGIN:VEVENT',
+    `SUMMARY:${taskDetails.taskName}`,
+    `DESCRIPTION:${taskDetails.notes}`,
+    `DTSTART:${icsDueDate}`, // Start time in YYYYMMDDTHHmmss format
+    `DTEND:${icsDueDate}`,   // End time in YYYYMMDDTHHmmss format, can be the same as start if not specified
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  return icsContent;
+}
+
+function downloadICSFile(icsContent, filename) {
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+}
+
+
     
