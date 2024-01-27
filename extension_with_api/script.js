@@ -1,18 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Modal display logic
     var modal = document.getElementById('clippingModal');
     var clipButton = document.getElementById('clipButton');
     var closeSpan = document.getElementsByClassName('close')[0];
 
-    clipButton.onclick = function() {
+    clipButton.onclick = function () {
         modal.style.display = 'block';
     };
 
-    closeSpan.onclick = function() {
+    closeSpan.onclick = function () {
         modal.style.display = 'none';
     };
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Save button logic
     const saveBtn = document.getElementById('saveBtn');
-    saveBtn.addEventListener('click', function() {
+    saveBtn.addEventListener('click', function () {
         const taskDetails = {
             taskName: document.getElementById('taskName').value,
             courseName: document.getElementById('courseName').value,
@@ -33,13 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add the task to the task list
         addTask(taskDetails.taskName, taskDetails.courseName, taskDetails.dueDate, taskDetails.notes);
 
+        // Call the function from background.js to handle ICS creation and download
+        if (window.saveAndDownloadTask) {
+            window.saveAndDownloadTask(taskDetails);
+        }
+
         // Close the modal after saving
         modal.style.display = 'none';
     });
 
     // Cancel button logic
     const cancelBtn = document.getElementById('cancelBtn');
-    cancelBtn.addEventListener('click', function() {
+    cancelBtn.addEventListener('click', function () {
         // Close the modal
         modal.style.display = 'none';
     });
@@ -60,7 +65,7 @@ function addTask(taskName, courseName, dueDate, note) {
 }
 
 // Placeholder for export functionality
-document.getElementById('exportButton').addEventListener('click', function() {
+document.getElementById('exportButton').addEventListener('click', function () {
     // Logic to export selected tasks to calendar
     console.log('Export button clicked');
 });

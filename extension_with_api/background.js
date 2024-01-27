@@ -53,8 +53,21 @@ async function autoFillTaskEditer(pageContent) {
         // Filling the form fields with extracted data
         fillTaskDetails(taskDetails);
 
-        // Generating and downloading the ICS file
-        downloadICSFile(createICSContent(taskDetails), `${taskDetails.taskName}.ics`);
+        // Create the ICS content and log it to the console
+        const icsContent = createICSContent(taskDetails);
+        console.log(icsContent); // This will print the ICS content to the console
+
+        // Only if icsContent is not null, proceed to download the file
+        if (icsContent) {
+            // Generating and downloading the ICS file
+            downloadICSFile(icsContent, `${taskDetails.taskName}.ics`);
+        } else {
+            // Handle the case where icsContent is null or not properly created
+            console.error('Failed to create ICS content.');
+            // Optionally, inform the user with a message or some UI indication
+            // For example, an alert, modal, or adding an error message to the page
+            alert('Unable to generate the calendar file due to an error.');
+        }
     } catch (error) {
         // Error handling
         console.error('autoFillTaskEditer error:', error);
@@ -72,39 +85,32 @@ function fillTaskDetails(taskDetails) {
 
 // Function to create ICS (Calendar) content from task details
 function createICSContent(taskDetails) {
-    // Function to convert JavaScript Date object to ICS format
+    // Helper function to format date to ICS format
     function formatDateToICS(dateString) {
-        // Try to parse the date string
         const date = new Date(dateString);
-
-        // Check if the date is valid
         if (isNaN(date.getTime())) {
-            // Handle the error if the date cannot be parsed, for example:
             console.error('Invalid date format');
             return null;
         }
-
-        // ICS date format is "YYYYMMDDTHHMMSSZ"
         return date.toISOString().replace(/-|:|\.\d\d\d/g, '').slice(0, -1) + 'Z';
     }
 
-
-    // Extracting relevant information from taskDetails
+    // Destructuring task details
     const { taskName, dueDate, notes } = taskDetails;
 
-    // Handling the date format
-    const startDateTime = new Date(dueDate); // Assuming dueDate is a correct date string
-    const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // Event end time, e.g., 1 hour later
+    // Calculate start and end date-times for the event
+    const startDateTime = new Date(dueDate);
+    const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // Adds 1 hour to start time
 
     // Building the ICS content
     const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
         'BEGIN:VEVENT',
-        `SUMMARY:${taskName || 'Unnamed Event'}`,
+        `SUMMARY:${taskName || 'Unnamed Task'}`,
         `DESCRIPTION:${notes || ''}`,
-        `DTSTART:${formatDateToICS(startDateTime)}`, // Event start time
-        `DTEND:${formatDateToICS(endDateTime)}`, // Event end time
+        `DTSTART:${formatDateToICS(startDateTime)}`,
+        `DTEND:${formatDateToICS(endDateTime)}`,
         'END:VEVENT',
         'END:VCALENDAR'
     ].join('\r\n');
@@ -112,71 +118,27 @@ function createICSContent(taskDetails) {
     return icsContent;
 }
 
-
+// Function to download the ICS file
 function downloadICSFile(icsContent, filename) {
-    // Create a Blob from the ICS content
     const blob = new Blob([icsContent], { type: 'text/calendar' });
-
-    // Create a link element
     const link = document.createElement('a');
-
-    // Set the download attribute with the filename
     link.download = filename;
-
-    // Create a URL for the blob and set it as the link's href
     link.href = window.URL.createObjectURL(blob);
-
-    // Append the link to the document
     document.body.appendChild(link);
-
-    // Programmatically click the link to trigger the download
     link.click();
-
-    // Remove the link after downloading
     document.body.removeChild(link);
-
-    // Clean up the URL object
     window.URL.revokeObjectURL(link.href);
 }
 
-// Event listener for the 'Clip Page' button
-document.getElementById('clipButton').addEventListener('click', () => {
-    // Triggering the autoFillTaskEditer function with page content
-    autoFillTaskEditer('The page content that needs to be sent to OpenAI API');
-});
+// Function to be called from the in-page script
+function saveAndDownloadTask(taskDetails) {
+    const icsContent = createICSContent(taskDetails);
+    if (icsContent) {
+        downloadICSFile(icsContent, `${taskDetails.taskName}.ics`);
+    } else {
+        alert('Error generating calendar file. Please check the task details.');
+    }
+}
 
-// Event listener for the 'Export to Calendar' button
-document.getElementById('exportButton').addEventListener('click', () => {
-    // Triggering the autoFillTaskEditer function with page content
-    autoFillTaskEditer('The page content that needs to be sent to OpenAI API');
-});
-
-document.getElementById('submitbutton2').addEventListener('click', () => {
-    // Example logic for generating a To-Do List
-    // This could be replaced with a more complex logic depending on your needs
-
-    // Fetch or generate a list of tasks. This might come from a webpage, user input, or any other source.
-    const tasks = [
-        { title: "Task 1", dueDate: "2024-01-01" },
-        { title: "Task 2", dueDate: "2024-01-02" },
-        // More tasks...
-    ];
-
-    // Get the element where the tasks will be displayed
-    const taskListElement = document.querySelector('.task-list');
-
-    // Clear existing tasks
-    taskListElement.innerHTML = '';
-
-    // Add each task to the task list
-    tasks.forEach(task => {
-        // Create an element for the task
-        const taskElement = document.createElement('div');
-        taskElement.className = 'task-item';
-        taskElement.textContent = `${task.title} - Due: ${task.dueDate}`;
-
-        // Append the task element to the task list
-        taskListElement.appendChild(taskElement);
-    });
-});
-
+// Expose the function to the global window object
+window.saveAndDownloadTask = saveAndDownloadTask;
