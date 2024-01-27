@@ -1,3 +1,5 @@
+let taskList = []; // Global array to store tasks
+
 document.addEventListener('DOMContentLoaded', function() {
     // Modal display logic
     var modal = document.getElementById('clippingModal');
@@ -53,7 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Logic to save the task details
         console.log('Saving task:', taskDetails);
         // Add the task to the task list
-        addTask(taskDetails.taskName, taskDetails.courseName, taskDetails.dueDate, taskDetails.notes);
+        taskList.push(taskDetails);
+        console.log('Task added:', taskDetails);
+        // display the task in the UI
+        addTaskToDisplay(taskDetails.taskName, taskDetails.courseName, taskDetails.dueDate, taskDetails.notes);
 
         // Close the modal after saving
         modal.style.display = 'none';
@@ -65,10 +70,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close the modal
         modal.style.display = 'none';
     });
+
+    // Export to Google Calendar button
+    document.getElementById('exportToGoogleCalendar').addEventListener('click', function() {
+        exportTasksToGoogleCalendar(taskList); // You need to define this function
+    });
+
+    // Export to Apple Calendar button
+    document.getElementById('exportToAppleCalendar').addEventListener('click', function() {
+        exportTasksToAppleCalendar(taskList); // You need to define this function
+    });
 });
 
 // Function to add a task to the task list
-function addTask(taskName, courseName, dueDate, note) {
+function addTaskToDisplay(taskName, courseName, dueDate, note) {
     const taskList = document.querySelector('.task-list');
     const taskItem = document.createElement('div');
     taskItem.classList.add('task-item');
@@ -81,8 +96,13 @@ function addTask(taskName, courseName, dueDate, note) {
     taskList.appendChild(taskItem);
 }
 
-// Placeholder for export functionality
-document.getElementById('exportButton').addEventListener('click', function() {
-    // Logic to export selected tasks to calendar
-    console.log('Export button clicked');
-});
+function exportTasksToAppleCalendar(tasks) {
+    // Logic to create and download an iCal file for Apple Calendar
+}
+
+
+function exportTasksToGoogleCalendar(tasks) {
+    // Logic to export tasks to Google Calendar
+    // This will involve authentication and using Google Calendar API
+}
+
