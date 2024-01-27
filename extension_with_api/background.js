@@ -73,10 +73,21 @@ function fillTaskDetails(taskDetails) {
 // Function to create ICS (Calendar) content from task details
 function createICSContent(taskDetails) {
     // Function to convert JavaScript Date object to ICS format
-    // ICS date format is "YYYYMMDDTHHMMSSZ" (e.g., "20240101T235900Z" for Jan 1, 2024, at 23:59 UTC)
-    function formatDateToICS(date) {
-        return date.toISOString().replace(/-|:|\.\d\d\d/g, '').replace('T', 'T').replace('Z', 'Z');
+    function formatDateToICS(dateString) {
+        // Try to parse the date string
+        const date = new Date(dateString);
+
+        // Check if the date is valid
+        if (isNaN(date.getTime())) {
+            // Handle the error if the date cannot be parsed, for example:
+            console.error('Invalid date format');
+            return null;
+        }
+
+        // ICS date format is "YYYYMMDDTHHMMSSZ"
+        return date.toISOString().replace(/-|:|\.\d\d\d/g, '').slice(0, -1) + 'Z';
     }
+
 
     // Extracting relevant information from taskDetails
     const { taskName, dueDate, notes } = taskDetails;

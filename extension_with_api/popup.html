@@ -1,12 +1,14 @@
 <!-- for the extension's popup interface -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="header">
         <button id="clipButton">Clip Page</button>
@@ -27,8 +29,10 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit" id="submitbutton1" name="submitbutton" value="ical" class="btn btn-floating" style="background-color:#826AED;"
-                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Get a Calendar file of your upcoming Canvas assignments!">
+                            <button type="submit" id="submitbutton1" name="submitbutton" value="ical"
+                                class="btn btn-floating" style="background-color:#826AED;" data-mdb-toggle="tooltip"
+                                data-mdb-trigger="hover" data-mdb-placement="bottom"
+                                title="Get a Calendar file of your upcoming Canvas assignments!">
                                 <i class="fas fa-calendar-alt" id="calendaricon"></i>
                             </button>
                         </div>
@@ -40,8 +44,10 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit" id="submitbutton2" name="submitbutton" value="todolist" class="btn btn-floating" style="background-color:#C879FF;"
-                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Generate a To-Do List of your upcoming Canvas assignments!">
+                            <button type="submit" id="submitbutton2" name="submitbutton" value="todolist"
+                                class="btn btn-floating" style="background-color:#C879FF;" data-mdb-toggle="tooltip"
+                                data-mdb-trigger="hover" data-mdb-placement="bottom"
+                                title="Generate a To-Do List of your upcoming Canvas assignments!">
                                 <i class="fas fa-clipboard-list" id="clipboardicon"></i>
                             </button>
                         </div>
@@ -61,8 +67,8 @@
             <label for="courseName">Course Name:</label>
             <input type="text" id="courseName" name="courseName">
 
-            <label for="dueDate">Due Date:</label>
-            <input type="text" id="dueDate" name="dueDate">      
+            <label for="dueDate">Due Date (format: YYYY-MM-DD):</label>
+            <input type="text" id="dueDate" name="dueDate" placeholder="e.g., 2024-01-01">
 
             <label for="notes">Notes:</label>
             <input type="text" id="notes" name="notes">
@@ -76,6 +82,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
-
-
