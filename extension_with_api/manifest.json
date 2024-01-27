@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "extension",
-  "description": "Transformers.js | Sample browser extension",
-  "version": "0.0.1",
+  "name": "Task2Calender",
+  "description": "Task2Calender | Clip Task To Your Calender",
+  "version": "1.0",
   "permissions": [
     "activeTab",
     "scripting",

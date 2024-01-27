@@ -1,0 +1,46 @@
+<!-- for the extension's popup interface -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <button id="clipButton">Clip Page</button>
+        <button id="exportButton">Export to Calendar</button>
+    </div>
+    <div class="task-list">
+        <!-- Task items will be appended here -->
+    </div>
+
+    <div id="clippingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task Details</h2>
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" name="taskName">
+
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" name="courseName">
+
+            <label for="dueDate">Due Date:</label>
+            <input type="text" id="dueDate" name="dueDate">      
+
+            <label for="notes">Notes:</label>
+            <input type="text" id="notes" name="notes">
+
+            <div class="button-container">
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="save-btn" id="saveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

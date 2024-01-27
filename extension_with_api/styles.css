@@ -1,0 +1,131 @@
+
+body {
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 420px; /* Set a minimum height for the popup */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column; /* Organize content in a column */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task-list {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Allow task list to grow */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+
+.task-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.input-container, .button-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="date"] {
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+}
+
+.button-container {
+    text-align: right;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Adjust top margin for better visibility */
+    max-height: 80%; /* Limit the height of the modal */
+    overflow-y: auto; /* Enable scrolling within the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Maximum width */
+    position: relative; /* For absolute positioning of the close button */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Absolute positioning inside the modal-content */
+    top: 10px; /* Position at the top-right corner */
+    right: 10px; /* Position at the top-right corner */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
