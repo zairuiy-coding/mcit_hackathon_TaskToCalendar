@@ -1,4 +1,4 @@
-# Task2Calendar Chrome Extension 
+# Task2Calendar Chrome Extension
 
 <img src="icons/icon.png" alt="Task2Calendar Icon" width="100" height="100"> 
 
