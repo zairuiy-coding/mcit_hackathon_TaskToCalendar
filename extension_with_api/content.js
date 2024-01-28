@@ -28,7 +28,7 @@ function extractAssignmentName(text) {
 
 function extractDueDate(text) {
   // Revised regular expression to match various due date formats including "Jan 27 at 7:30am"
-  const dueDatePattern = /(?:\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{1,2}(?:st|nd|rd|th)?\s*[@at]\s*(\d{1,2}:\d{2}\s*(?:am|pm)))|(?:\d{1,2}:\d{2}\s*(?:am|pm)\s*on\s*(mon|tue|wed|thu|fri|sat|sun),?\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{1,2}(?:st|nd|rd|th)?)|(?:\b(mon|tue|wed|thu|fri|sat|sun)\b,?\s*)?(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{1,2}(?:st|nd|rd|th)?(?:\s*[@at]\s*\d{1,2}:\d{2}\s*(?:am|pm))?/i;
+  const dueDatePattern = /(\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{1,2}(?:\s*(?:@|at)?\s*\d{1,2}:\d{2}\s*[apAP][mM]))|(\d{1,2}:\d{2}\s*[apAP][mM]\s*on\s*(?:mon|tue|wed|thu|fri|sat|sun|monday|tuesday|wednesday|thursday|friday|saturday|sunday),?\s*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{1,2})/i
 
   const match = text.match(dueDatePattern);
   return match ? match[0] : null;
