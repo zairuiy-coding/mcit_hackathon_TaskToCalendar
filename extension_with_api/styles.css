@@ -1,7 +1,9 @@
 #extensionIcon {
     height: 24px; /* Or the size you want your icon to be */
     width: auto;
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-left: 10px;
+
 }
 
 #extensionTitle {
@@ -129,12 +131,13 @@ input:focus {
 /* Style for individual buttons */
 button {
     margin: 5px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: tomato; /* Tomato red color */
     color: white;
+    font-size: 13px;
     font-weight: bold;
     box-shadow: none; /* Remove box-shadow from individual buttons */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
@@ -184,7 +187,7 @@ button:hover {
 }
 
 .modal-content {
-
+    border-radius: 8px; /* Apply rounded corners to the modal content */
     background-color: #fefefe;
     margin: 5% auto; /* Reduce top and bottom margin */
     max-height: 95%; /* Reduce max height to ensure it fits in the viewport */
