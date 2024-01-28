@@ -2,6 +2,7 @@
 
 let taskList = []; // Global array to store tasks
 
+
 document.addEventListener('DOMContentLoaded', function() {
     // Modal display logic
     var modal = document.getElementById('clippingModal');
@@ -92,6 +93,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+// function to make url in note clickable
+function createClickableLink(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url) {
+        return `<a href="${url}" target="_blank">${url}</a>`;
+    });
+}
+
+
 // Function to refresh the task list display
 function refreshTaskListDisplay() {
     const taskListContainer = document.querySelector('.task-list');
@@ -99,13 +110,17 @@ function refreshTaskListDisplay() {
 
     taskList.forEach((task, index) => {
         const taskItem = document.createElement('div');
+        const taskWithClickableLink = createClickableLink(task.notes); // Assuming task.notes contains the URL
         taskItem.classList.add('task-item');
         taskItem.innerHTML = `
             <strong>${task.taskName}</strong>
             <p>Course: ${task.courseName}</p>
             <p>Due: ${task.dueDate}</p>
-            <p>Note: ${task.notes}</p>
+            <p>Note: ${taskWithClickableLink}</p>
         `;
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
 
         // Create the edit button
         const editButton = document.createElement('button');
@@ -121,8 +136,9 @@ function refreshTaskListDisplay() {
             deleteTask(index);
         });
 
-        taskItem.appendChild(editButton);
-        taskItem.appendChild(deleteButton);
+        buttonContainer.appendChild(editButton);
+        buttonContainer.appendChild(deleteButton);
+        taskItem.appendChild(buttonContainer); // Append the button container to the task item
         taskListContainer.appendChild(taskItem);
     });
 }

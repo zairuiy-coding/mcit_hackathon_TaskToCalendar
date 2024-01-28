@@ -1,7 +1,21 @@
+#extensionIcon {
+    height: 24px; /* Or the size you want your icon to be */
+    width: auto;
+    margin-right: 10px;
+}
+
+#extensionTitle {
+    display: inline; /* To align with the icon */
+    font-size: 1.5em; /* Adjust the size as needed */
+    vertical-align: middle; /* Align with the icon */
+    margin: 10px; /* Space before the buttons */
+}
+
+/* ----------------------------------------------------------- */
+
 
 body {
-    min-width: 300px;
-    max-width: 600px;
+    width: 310px;
     min-height: 420px; /* Set a minimum height for the popup */
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,31 +26,77 @@ body {
 }
 
 .header {
-    text-align: center;
+    text-align: left; /* Align the content to the left */
+    margin-bottom: 0px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: start; /* Start items from the beginning */
+}
+
+h2 {
+    color: #333;
     margin-bottom: 20px;
 }
 
-.task-list {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-grow: 1; /* Allow task list to grow */
-    overflow-y: auto; /* Enable scrolling */
-}
 
+
+
+/* ----------------------------------------------------------- */
+
+.task-list {
+    background: #f7d0c3; /* Lighter shade of tomato */
+    padding: 15px;
+    border-radius: 5px; /* Rounded corners for the list */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column; /* Stack tasks vertically */
+    gap: 15px; /* Space between cards */
+    display: flex; /* Use flex display for alignment */
+    flex-direction: column; /* Stack content vertically */
+    position: relative; /* For positioning the buttons */
+}
 
 .task-item {
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    background: white;
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Card shadow for depth */
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    position: relative; /* For positioning the buttons */
 }
 
-.task-item:last-child {
-    border-bottom: none;
+.task-item p {
+    margin-top: 0.2em; /* Adjust top margin as needed */
+    margin-bottom: 0.2em; /* Adjust bottom margin as needed */
+    line-height: 1.4em; /* Adjust line height for better readability */
+    word-wrap: break-word; /* This ensures that long words will break and wrap onto the next line */
+    overflow-wrap: break-word; /* Use this as well for additional support */
+    hyphens: auto; /* Automatically add hyphens when breaking words */
 }
 
-.input-container, .button-container {
+.task-item a {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #0645ad; /* A standard link color */
+    text-decoration: underline; /* Underline to indicate clickability */
+}
+
+.task-item a:hover {
+    text-decoration: none; /* Optional style for when the mouse hovers over the link */
+}
+
+
+/* ----------------------------------------------------------- */
+
+
+.input-container {
     background: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -53,41 +113,62 @@ input[type="text"], input[type="date"] {
     box-sizing: border-box;
 }
 
-button {
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.save-btn {
-    background-color: #4CAF50;
-}
-
-.cancel-btn {
-    background-color: #f44336;
-}
-
-.button-container {
-    text-align: right;
-}
-
 input:focus {
     outline: none;
     border-color: #4CAF50;
 }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
+/* ----------------------------------------------------------- */
+
+
+.button-group {
+    text-align: center; /* Center the buttons */
+    padding-top: 5px; /* Add some space between the title and the buttons */
 }
+
+/* Style for individual buttons */
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: tomato; /* Tomato red color */
+    color: white;
+    font-weight: bold;
+    box-shadow: none; /* Remove box-shadow from individual buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #e35d5b; /* Darker tomato when hovering */
+}
+
+/* Style for edit and delete buttons specifically */
+.edit-button, .delete-button {
+    flex: none; /* Do not allow the buttons to grow */
+    padding: 5px 20px; /* Increase padding for better touch targets */
+    font-size: 0.8rem;
+    margin: 0 10px; /* Adjust spacing between buttons */
+}
+
+/* Style for the container wrapping the edit and delete buttons */
+.button-container {
+    display: flex; /* Use flexbox to arrange buttons in a row */
+    justify-content: right; /* Center buttons in the container */
+    gap: 5px; /* Space between buttons */
+}
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------- */
+
 
 /* Modal styles */
 .modal {
@@ -103,15 +184,27 @@ h2 {
 }
 
 .modal-content {
+
     background-color: #fefefe;
-    margin: 10% auto; /* Adjust top margin for better visibility */
-    max-height: 80%; /* Limit the height of the modal */
+    margin: 5% auto; /* Reduce top and bottom margin */
+    max-height: 95%; /* Reduce max height to ensure it fits in the viewport */
     overflow-y: auto; /* Enable scrolling within the modal */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px; /* Maximum width */
     position: relative; /* For absolute positioning of the close button */
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: calc(100% - 40px); /* Full width minus the padding */
+    padding: 10px;
+    margin-top: 5px; /* Provide some space on top */
+    margin-bottom: 10px; /* Provide some space at the bottom */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in the width */
 }
 
 .close {
@@ -129,3 +222,4 @@ h2 {
     text-decoration: none;
     cursor: pointer;
 }
+
