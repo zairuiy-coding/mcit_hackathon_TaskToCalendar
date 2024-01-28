@@ -1,4 +1,4 @@
-# Task2Calendar Chrome Extension <img src="icons/icon.png" alt="Task2Calendar Icon" width="100" height="100">
+# <img src="icons/icon.png" alt="Task2Calendar Icon" width="100" height="100"> Task2Calendar Chrome Extension
 
 ## Description
 Task2Calendar is a Chrome extension designed to streamline the process of clipping tasks from various web pages and adding them directly to your calendar. With its intuitive UI and efficient task capturing capabilities, Task2Calendar enhances productivity by organizing your tasks seamlessly.
