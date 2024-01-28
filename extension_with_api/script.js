@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var clipButton = document.getElementById('clipButton');
     var closeSpan = document.getElementsByClassName('close')[0];
 
+    // Load tasks from local storage
+    chrome.storage.local.get(['tasks'], function(result) {
+        if (result.tasks && Array.isArray(result.tasks)) {
+            taskList = result.tasks;
+            refreshTaskListDisplay();
+        }
+    });
+
     clipButton.onclick = function() {
         modal.style.display = 'block';
 
@@ -56,11 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Logic to save the task details
         console.log('Saving task:', taskDetails);
+
         // Add the task to the task list
         taskList.push(taskDetails);
+        saveTasks(); // Save to local storage
         console.log('Task added:', taskDetails);
-        // display the task in the UI
-        addTaskToDisplay(taskDetails.taskName, taskDetails.courseName, taskDetails.dueDate, taskDetails.notes);
+
+         // Refresh the display of tasks
+        refreshTaskListDisplay();
+
+
 
         // Close the modal after saving
         modal.style.display = 'none';
@@ -84,19 +97,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Function to add a task to the task list
-function addTaskToDisplay(taskName, courseName, dueDate, note) {
-    const taskList = document.querySelector('.task-list');
-    const taskItem = document.createElement('div');
-    taskItem.classList.add('task-item');
-    taskItem.innerHTML = `
-        <strong>${taskName}</strong>
-        <p>Course: ${courseName}</p>
-        <p>Due: ${dueDate}</p>
-        <p>Note: ${note}</p>
-    `;
-    taskList.appendChild(taskItem);
+// Function to refresh the task list display
+function refreshTaskListDisplay() {
+    const taskListContainer = document.querySelector('.task-list');
+    taskListContainer.innerHTML = ''; // Clear the current display
+
+    taskList.forEach((task, index) => {
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-item');
+        taskItem.innerHTML = `
+            <strong>${task.taskName}</strong>
+            <p>Course: ${task.courseName}</p>
+            <p>Due: ${task.dueDate}</p>
+            <p>Note: ${task.notes}</p>
+        `;
+
+        // Create the delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function() {
+            deleteTask(index);
+        });
+
+        taskItem.appendChild(deleteButton);
+        taskListContainer.appendChild(taskItem);
+    });
 }
+
+// Function to delete a task
+function deleteTask(index) {
+    console.log("delete clicked");
+    taskList.splice(index, 1); // Remove the task from the list
+    saveTasks(); // Save to local storage
+    refreshTaskListDisplay(); // Update the UI
+}
+
+
+
+// SAVE TO LOCAL STORAGE
+
+function saveTasks() {
+    chrome.storage.local.set({ tasks: taskList }, function() {
+        console.log('Tasks saved locally');
+    });
+}
+
+
+
+
+
+// EXPORT TO ICS
+
 
 function parseCustomDate(dateStr) {
 
