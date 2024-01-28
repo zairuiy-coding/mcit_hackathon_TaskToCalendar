@@ -256,7 +256,7 @@ function exportTasksToAppleCalendar(tasks) {
         console.log("Formatted Start Date:", startDate, "End Date:", endDate);
 
         icsContent += 'BEGIN:VEVENT\n';
-        icsContent += `UID:${task.taskName}@yourdomain.com\n`;
+        icsContent += `UID:${task.courseName}${task.taskName}@yourdomain.com\n`;
         icsContent += `DTSTART:${startDate}\n`;
         icsContent += `DTEND:${endDate}\n`;
         icsContent += `SUMMARY:${escapeICSValue(`${task.courseName} ${task.taskName}`)}\n`; // Concatenate course and taskName
