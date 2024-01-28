@@ -1,4 +1,4 @@
-// Add a listener to listen for a message from the popup
+// scraping data from web pages
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "clipPage") {
       scrapePageForAssignmentInfo();

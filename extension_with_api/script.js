@@ -1,3 +1,5 @@
+// manages user interactions and data processing within the popup
+
 let taskList = []; // Global array to store tasks
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -96,9 +98,68 @@ function addTaskToDisplay(taskName, courseName, dueDate, note) {
     taskList.appendChild(taskItem);
 }
 
-function exportTasksToAppleCalendar(tasks) {
-    // Logic to create and download an iCal file for Apple Calendar
+function parseCustomDate(dateStr) {
+
+    const momentDate = moment.tz(dateStr, "MMMM DD @ hh:mmA", "America/New_York");
+    if (!momentDate.isValid()) {
+        console.error("Failed to parse date:", dateStr);
+        return null;
+    }
+    return momentDate.toDate();
 }
+
+
+
+function formatToiCalDate(date) {
+    // Format the date to iCal format with New York timezone
+    return moment(date).tz("America/New_York").format('YYYYMMDDTHHmm00');
+}
+
+function escapeICSValue(str) {
+    return str.replace(/[\r\n]+/g, ' ').trim();
+}
+
+// export to Apple Calendar
+function exportTasksToAppleCalendar(tasks) {
+    console.log("Starting export to Apple Calendar with tasks:", tasks);
+
+    let icsContent = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Your Company//Your Product//EN\n';
+
+    tasks.forEach(task => {
+        console.log("Processing task for iCal:", task);
+
+        let startDate = formatToiCalDate(new Date(parseCustomDate(task.dueDate).getTime() - 60 * 60000)); // Assuming 1 hour duration
+        let endDate = formatToiCalDate(parseCustomDate(task.dueDate));
+
+        console.log("Formatted Start Date:", startDate, "End Date:", endDate);
+
+        icsContent += 'BEGIN:VEVENT\n';
+        icsContent += `UID:${task.taskName}@yourdomain.com\n`;
+        icsContent += `DTSTART:${startDate}\n`;
+        icsContent += `DTEND:${endDate}\n`;
+        icsContent += `SUMMARY:${escapeICSValue(task.taskName)}\n`;
+        icsContent += `DESCRIPTION:${escapeICSValue(task.notes)}\n`;
+        icsContent += 'END:VEVENT\n';
+    });
+
+    icsContent += 'END:VCALENDAR';
+    console.log("Final iCal content:", icsContent);
+
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    console.log("Blob URL created:", url);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tasks.ics';
+    document.body.appendChild(a);
+    a.click();
+    console.log("Download triggered for iCal file");
+
+    window.URL.revokeObjectURL(url);
+    console.log("Blob URL revoked");
+}
+
 
 
 function exportTasksToGoogleCalendar(tasks) {
