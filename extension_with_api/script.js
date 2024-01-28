@@ -216,8 +216,13 @@ function saveTasks() {
 
 
 function parseCustomDate(dateStr) {
-
-    const momentDate = moment.tz(dateStr, "MMMM DD @ hh:mmA", "America/New_York");
+    const formats = [
+        "MMMM DD @ hh:mmA", // "February 07 @ 11:59PM"
+        "hh:mm a 'on' ddd, MMM DD", // "11:59 pm on Fri, Feb 02"
+        "MMM DD 'at' hh:mma" // "Jan 27 at 7:30am"
+    ];
+    
+    const momentDate = moment.tz(dateStr, formats, "America/New_York");
     if (!momentDate.isValid()) {
         console.error("Failed to parse date:", dateStr);
         return null;
