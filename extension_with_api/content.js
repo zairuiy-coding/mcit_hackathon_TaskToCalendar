@@ -11,7 +11,7 @@ function extractAssignmentFromURL(url) {
   const match = url.match(urlPattern);
   if (match) {
     // Check if the extracted segment matches typical assignment patterns
-    const assignmentPattern = /^(?:assignment|homework|hw|project|projects|quiz)\s*#?\d+/i;
+    const assignmentPattern = /^(?:assignment|homework|hw|project|projects|proj|final_proj|final_project|quiz|exam|exams)\s*#?\d+/i;
     const segment = match[1].replace(/-/g, ' ');
     if (assignmentPattern.test(segment)) {
       return segment;
@@ -21,7 +21,7 @@ function extractAssignmentFromURL(url) {
 }
 
 function extractAssignmentName(text) {
-  const assignmentNamePattern = /(?:assignment|homework|hw|project|projects|quiz)\s*#?\d+/i;
+  const assignmentNamePattern = /(?:assignment|homework|hw|project|proj|final_proj|final_project|projects|quiz|exam|exams)\s*#?\d+/i;
   const match = text.match(assignmentNamePattern);
   return match ? match[0] : null;
 }
