@@ -225,14 +225,31 @@ function saveTasks() {
 
 ////////////// EXPORT TO ICS //////////////
 
-
 function parseCustomDate(dateStr) {
+    // Manual parsing for the specific format: "11:59 pm on Monday, September 18"
+    const specificFormatRegex = /(\d{1,2}:\d{2}\s*[apAP][mM])\s*on\s*([a-zA-Z]+),\s*([a-zA-Z]+)\s*(\d{1,2})/;
+    if (specificFormatRegex.test(dateStr)) {
+        const [, timePart, , monthPart, dayPart] = specificFormatRegex.exec(dateStr);
+        // Construct a new date string in a more standard format
+        const standardDateString = `${monthPart} ${dayPart}, ${new Date().getFullYear()} ${timePart}`;
+        // Parse the new date string using a single format
+        const momentDate = moment.tz(standardDateString, "MMMM DD, YYYY hh:mmA", "America/New_York");
+        if (!momentDate.isValid()) {
+            console.error("Failed to manually parse date:", standardDateString);
+            return null;
+        }
+        return momentDate.toDate();
+    }
+
+    // Define date formats for parsing other formats
     const formats = [
-        "MMMM DD @ hh:mmA", // "February 07 @ 11:59PM"
+        "MMMM DD @ hh:mmA",         // "February 07 @ 11:59PM"
+        "MMM DD 'at' hh:mma",       // "Jan 27 at 7:30am"
+        "MMM DD HH:mma",            // "Feb 04 23:50pm"
         "hh:mm a 'on' ddd, MMM DD", // "11:59 pm on Fri, Feb 02"
-        "MMM DD 'at' hh:mma" // "Jan 27 at 7:30am"
     ];
-    
+
+    // Parse using Moment.js with the above formats
     const momentDate = moment.tz(dateStr, formats, "America/New_York");
     if (!momentDate.isValid()) {
         console.error("Failed to parse date:", dateStr);
@@ -240,6 +257,12 @@ function parseCustomDate(dateStr) {
     }
     return momentDate.toDate();
 }
+
+
+
+
+
+
 
 
 
