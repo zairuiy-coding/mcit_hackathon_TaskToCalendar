@@ -86,12 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
     });
 
-    // Export to Google Calendar button
-    document.getElementById('exportToGoogleCalendar').addEventListener('click', function() {
-        exportTasksToGoogleCalendar(taskList); // You need to define this function
-    });
-
-    // Export to Apple Calendar button
+    // Export to Calendar button
     document.getElementById('exportToAppleCalendar').addEventListener('click', function() {
         exportTasksToAppleCalendar(taskList); // You need to define this function
     });
@@ -280,12 +275,5 @@ function exportTasksToAppleCalendar(tasks) {
 
     window.URL.revokeObjectURL(url);
     console.log("Blob URL revoked");
-}
-
-
-
-function exportTasksToGoogleCalendar(tasks) {
-    // Logic to export tasks to Google Calendar
-    // This will involve authentication and using Google Calendar API
 }
 
