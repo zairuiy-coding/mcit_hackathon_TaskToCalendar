@@ -40,6 +40,34 @@
         </div>
     </div>
 
+    <!-- Add an edit modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="editCloseBtn">&times;</span>
+            <h2>Edit Task</h2>
+            <div>
+                <label for="editTaskName">Task Name:</label>
+                <input type="text" id="editTaskName">
+            </div>
+            <div>
+                <label for="editCourseName">Course Name:</label>
+                <input type="text" id="editCourseName">
+            </div>
+            <div>
+                <label for="editDueDate">Due Date:</label>
+                <input type="text" id="editDueDate">
+            </div>
+            <div>
+                <label for="editNotes">Notes:</label>
+                <textarea id="editNotes"></textarea>
+            </div>
+            <div>
+                <button id="editCancelBtn">Cancel</button>
+                <button id="editSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="moment.js"></script>
     <script src="moment-timezone-with-data.js"></script>

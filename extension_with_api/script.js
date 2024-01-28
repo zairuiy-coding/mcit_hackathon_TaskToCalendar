@@ -112,6 +112,13 @@ function refreshTaskListDisplay() {
             <p>Note: ${task.notes}</p>
         `;
 
+        // Create the edit button
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', function() {
+            openEditModal(index); // Open the edit modal with the task index
+        });
+
         // Create the delete button
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
@@ -119,6 +126,7 @@ function refreshTaskListDisplay() {
             deleteTask(index);
         });
 
+        taskItem.appendChild(editButton);
         taskItem.appendChild(deleteButton);
         taskListContainer.appendChild(taskItem);
     });
@@ -133,8 +141,66 @@ function deleteTask(index) {
 }
 
 
+////////////// TASK EDIT //////////////
 
-// SAVE TO LOCAL STORAGE
+// Modal for editing task details
+const editModal = document.getElementById('editModal');
+const editTaskNameInput = document.getElementById('editTaskName');
+const editCourseNameInput = document.getElementById('editCourseName');
+const editDueDateInput = document.getElementById('editDueDate');
+const editNotesInput = document.getElementById('editNotes');
+const editSaveBtn = document.getElementById('editSaveBtn');
+
+let editingTaskIndex = null; // To track the task being edited
+
+// Function to open the edit modal with task details
+function openEditModal(index) {
+    editingTaskIndex = index; // Set the task index being edited
+    const taskToEdit = taskList[index];
+
+    // Populate the edit modal with task details
+    editTaskNameInput.value = taskToEdit.taskName;
+    editCourseNameInput.value = taskToEdit.courseName;
+    editDueDateInput.value = taskToEdit.dueDate;
+    editNotesInput.value = taskToEdit.notes;
+
+    // Show the edit modal
+    editModal.style.display = 'block';
+}
+
+// Save edited task details
+editSaveBtn.addEventListener('click', function() {
+    if (editingTaskIndex !== null) {
+        // Update the task in the taskList
+        const editedTask = {
+            taskName: editTaskNameInput.value,
+            courseName: editCourseNameInput.value,
+            dueDate: editDueDateInput.value,
+            notes: editNotesInput.value
+        };
+        taskList[editingTaskIndex] = editedTask;
+        saveTasks(); // Save to local storage
+        refreshTaskListDisplay(); // Update the UI
+        editingTaskIndex = null; // Reset the editingTaskIndex
+        editModal.style.display = 'none'; // Close the edit modal
+    }
+});
+
+// Close the edit modal when the close button is clicked
+document.getElementById('editCloseBtn').addEventListener('click', function() {
+    editModal.style.display = 'none';
+});
+
+// Close the edit modal when the "Cancel" button is clicked
+document.getElementById('editCancelBtn').addEventListener('click', function() {
+    editingTaskIndex = null; // Reset the editingTaskIndex
+    editModal.style.display = 'none'; // Close the edit modal
+});
+
+
+
+
+////////////// SAVE TO LOCAL STORAGE //////////////
 
 function saveTasks() {
     chrome.storage.local.set({ tasks: taskList }, function() {
@@ -146,7 +212,7 @@ function saveTasks() {
 
 
 
-// EXPORT TO ICS
+////////////// EXPORT TO ICS //////////////
 
 
 function parseCustomDate(dateStr) {
