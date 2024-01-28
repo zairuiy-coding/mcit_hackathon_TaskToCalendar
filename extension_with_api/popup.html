@@ -1,0 +1,95 @@
+<!-- for the extension's popup interface -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="icons/icon.png" alt="Task2Calendar Icon" id="extensionIcon">
+        <h1 id="extensionTitle">Task2Calendar</h1>
+    </div>
+
+    <div class="button-group">
+        <button id="clipButton">Clip Current Page</button>
+        <button id="exportToAppleCalendar">Export to Calendar</button>
+    </div>
+    
+    
+    <div class="task-list">
+        <!-- Task items will be appended here -->
+    </div>
+
+    <div id="clippingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task Details</h2>
+            <div>
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName">
+            </div>
+            <div>
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" name="courseName">
+            </div>
+            <div>
+                <label for="dueDate">Due Date:</label>
+                <input type="text" id="dueDate" name="dueDate">  
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+            </div>
+            <div>
+                <textarea id="notes"></textarea>
+            </div>
+            <div>
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="save-btn" id="saveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add an edit modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="editCloseBtn">&times;</span>
+            <h2>Edit Task Details</h2>
+            <div>
+                <label for="editTaskName">Task Name:</label>
+                <input type="text" id="editTaskName">
+            </div>
+            <div>
+                <label for="editCourseName">Course Name:</label>
+                <input type="text" id="editCourseName">
+            </div>
+            <div>
+                <label for="editDueDate">Due Date:</label>
+                <input type="text" id="editDueDate">
+            </div>
+            <div>
+                <label for="editNotes">Notes:</label>
+            </div>
+            <div>
+                <textarea id="editNotes"></textarea>
+            </div>
+            <div>
+                <button id="editCancelBtn">Cancel</button>
+                <button id="editSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="moment.js"></script>
+    <script src="moment-timezone-with-data.js"></script>
+
+</body>
+</html>
+
+
