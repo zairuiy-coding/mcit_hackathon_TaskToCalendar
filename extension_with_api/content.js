@@ -48,18 +48,20 @@ function scrapePageForAssignmentInfo() {
   const assignmentName = assignmentNameFromURL || extractAssignmentName(document.body.innerText);
   const dueDate = extractDueDate(document.body.innerText);
   const courseName = extractCourseName(document.body.innerText);
+  const url = window.location.href;
 
 
   // Log the results
   console.log('Assignment Name:', assignmentName);
   console.log('Due Date:', dueDate);
   console.log('Course Name:', courseName);
+  console.info('url: ', url);
 
   // Send the scraped data to the background script if any information is found
   if (assignmentName || dueDate || courseName) {
     const message = {
         action: "processData",
-        data: { assignmentName, dueDate, courseName }
+        data: { assignmentName, dueDate, courseName, url }
     };
     chrome.runtime.sendMessage(message, function(response) {
         if (chrome.runtime.lastError) {

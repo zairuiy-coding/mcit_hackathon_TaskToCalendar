@@ -6,7 +6,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const processedData = {
             assignmentName: processAssignmentName(request.data.assignmentName),
             dueDate: processDueDate(request.data.dueDate),
-            courseName: processCourseName(request.data.courseName)
+            courseName: processCourseName(request.data.courseName),
+            url: request.data.url
         };
 
         // Send processed data to the popup script and handle response asynchronously

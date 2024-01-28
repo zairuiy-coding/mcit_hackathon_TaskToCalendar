@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('taskName').value = request.data.assignmentName || '';
             document.getElementById('courseName').value = request.data.courseName || '';
             document.getElementById('dueDate').value = request.data.dueDate || '';
-            // You can also update the 'notes' field if necessary
+            document.getElementById('notes').value = request.data.url || '';
         }
     });
 
@@ -137,7 +137,7 @@ function exportTasksToAppleCalendar(tasks) {
         icsContent += `UID:${task.taskName}@yourdomain.com\n`;
         icsContent += `DTSTART:${startDate}\n`;
         icsContent += `DTEND:${endDate}\n`;
-        icsContent += `SUMMARY:${escapeICSValue(task.taskName)}\n`;
+        icsContent += `SUMMARY:${escapeICSValue(`${task.courseName} ${task.taskName}`)}\n`; // Concatenate course and taskName
         icsContent += `DESCRIPTION:${escapeICSValue(task.notes)}\n`;
         icsContent += 'END:VEVENT\n';
     });
