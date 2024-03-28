@@ -47,7 +47,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 #### Simple - Easy to use
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursepage1.gif" alt="Profile" width="180">
+  <img src="demo/coursewebpage1.gif" alt="Profile" width="180">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar helps clip assignment from course webpage.</em></figcaption>
 </div>
@@ -56,7 +56,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 <br>
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursepage2.gif" alt="Profile" width="180">
+  <img src="demo/coursewebpage2.gif" alt="Profile" width="180">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar works with multiple types of webpage.</em></figcaption>
 </div>
@@ -66,7 +66,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursepage3.gif" alt="Profile" width="180">
+  <img src="demo/coursewebpage3.gif" alt="Profile" width="180">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>When it comes to certain case that task name and due date aare not displayed on a single page, Task2Calendar allows the flexibility for user to add info manually.</em></figcaption>
 </div>
