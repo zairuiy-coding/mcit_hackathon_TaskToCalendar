@@ -47,7 +47,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 #### Simple - Easy to use
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursewebpage1.gif" alt="Profile" width="180">
+  <img src="demo/coursewebpage1.gif" alt="Demo" width="280" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar helps clip assignment from course webpage.</em></figcaption>
 </div>
@@ -56,7 +56,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 <br>
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursewebpage2.gif" alt="Profile" width="180">
+  <img src="demo/coursewebpage2.gif" alt="Demo" width="280" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar works with multiple types of webpage.</em></figcaption>
 </div>
@@ -66,7 +66,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursewebpage3.gif" alt="Profile" width="180">
+  <img src="/demo/coursewebpage3.gif" alt="Demo" width="280" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>When it comes to certain case that task name and due date aare not displayed on a single page, Task2Calendar allows the flexibility for user to add info manually.</em></figcaption>
 </div>
@@ -76,7 +76,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 #### Fast - Calendar automation
 
-<em>Registration & Authentication</em>
+<!-- <em>Registration & Authentication</em>
 <div align="center">
 <div align="center" style="display:flex; justify-content:center;">
     <img src="CaffeineTracker/Others/welcome.png" height="380" style="margin-right: 20px;">
@@ -85,7 +85,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 </div>
 <div style="margin-top: 20px;"></div>
 <figcaption style="text-align:center"><em>User managed through Firebase Authentication</em></figcaption>
-</div>
+</div> -->
 
 <div style="margin-top: 40px;"></div>
 <br>
