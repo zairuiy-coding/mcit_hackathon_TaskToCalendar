@@ -25,14 +25,14 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 #### Built With
 
-[![JavaScript][JavaScript]][JavaScript-url] [![HTML][HTML]][HTML-url] [![CSS][XCSS]][CSS-url]
+[![JavaScript][JavaScript]][JavaScript-url] [![HTML][HTML]][HTML-url] [![CSS][CSS]][CSS-url]
 
 
 
-## Usage: Boost Your Productivity
+## Boost Your Productivity
 
 
-#### Light: No need to deploy
+#### Light - No need to deploy
 
 <!-- <em>Summary Dashboard</em>
 <div align="center" style="text-align:center;">
@@ -44,7 +44,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 <div style="margin-top: 20px;"></div>
 <br> -->
 
-#### Simple: Easy to use
+#### Simple - Easy to use
 
 <!-- <div align="center" style="text-align:center;">
   <img src="CaffeineTracker/Others/AddDrink.gif" alt="Profile" width="180">
@@ -56,7 +56,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 <br> -->
 
 
-#### Fast: Calendar automation
+#### Fast - Calendar automation
 
 <!-- <em>Registration & Authentication</em>
 <div align="center">
