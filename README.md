@@ -34,7 +34,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 #### Light - No need to deploy
 
-<em>Summary Dashboard</em>
+<!-- <em>Summary Dashboard</em>
 <div align="center" style="text-align:center;">
   <img src="CaffeineTracker/Others/Dashboard.gif" alt="Dashboard" width="180">
   <div style="margin-top: 20px;"></div>
@@ -42,7 +42,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 </div>
 
 <div style="margin-top: 20px;"></div>
-<br>
+<br> -->
 
 #### Simple - Easy to use
 
