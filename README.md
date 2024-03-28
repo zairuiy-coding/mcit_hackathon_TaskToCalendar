@@ -5,7 +5,7 @@
 <div align="center">
 
   <a>
-    <img src="icons/icon.png" alt="Logo" width="220" height="220">
+    <img src="icons/icon.png" alt="Logo" width="120" height="120">
   </a>
 
 <h1 align="center">Task2Calendar</h1>
@@ -34,7 +34,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 #### Light - No need to deploy
 
-<!-- <em>Summary Dashboard</em>
+<em>Summary Dashboard</em>
 <div align="center" style="text-align:center;">
   <img src="CaffeineTracker/Others/Dashboard.gif" alt="Dashboard" width="180">
   <div style="margin-top: 20px;"></div>
@@ -42,23 +42,41 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 </div>
 
 <div style="margin-top: 20px;"></div>
-<br> -->
+<br>
 
 #### Simple - Easy to use
 
-<!-- <div align="center" style="text-align:center;">
-  <img src="CaffeineTracker/Others/AddDrink.gif" alt="Profile" width="180">
+<div align="center" style="text-align:center;">
+  <img src="demo/coursepage1.gif" alt="Profile" width="180">
   <div style="margin-top: 20px;"></div>
-  <figcaption style="text-align:center"><em>Users can record new drinks by picking from the default list or customizing a drink entry; all drink data stored on Firestore</em></figcaption>
+  <figcaption style="text-align:center"><em>Task2Calendar helps clip assignment from course webpage.</em></figcaption>
 </div>
 
 <div style="margin-top: 40px;"></div>
-<br> -->
+<br>
 
+<div align="center" style="text-align:center;">
+  <img src="demo/coursepage2.gif" alt="Profile" width="180">
+  <div style="margin-top: 20px;"></div>
+  <figcaption style="text-align:center"><em>Task2Calendar works with multiple types of webpage.</em></figcaption>
+</div>
+
+<div style="margin-top: 40px;"></div>
+<br>
+
+
+<div align="center" style="text-align:center;">
+  <img src="demo/coursepage3.gif" alt="Profile" width="180">
+  <div style="margin-top: 20px;"></div>
+  <figcaption style="text-align:center"><em>When it comes to certain case that task name and due date aare not displayed on a single page, Task2Calendar allows the flexibility for user to add info manually.</em></figcaption>
+</div>
+
+<div style="margin-top: 40px;"></div>
+<br>
 
 #### Fast - Calendar automation
 
-<!-- <em>Registration & Authentication</em>
+<em>Registration & Authentication</em>
 <div align="center">
 <div align="center" style="display:flex; justify-content:center;">
     <img src="CaffeineTracker/Others/welcome.png" height="380" style="margin-right: 20px;">
@@ -67,7 +85,7 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 </div>
 <div style="margin-top: 20px;"></div>
 <figcaption style="text-align:center"><em>User managed through Firebase Authentication</em></figcaption>
-</div> -->
+</div>
 
 <div style="margin-top: 40px;"></div>
 <br>
