@@ -1,39 +1,101 @@
-# Task2Calendar Chrome Extension
+<a name="readme-top"></a>
 
-<img src="icons/icon.png" alt="Task2Calendar Icon" width="100" height="100"> 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Description
-Task2Calendar is a Chrome extension designed to streamline the process of clipping tasks from various web pages and adding them directly to your calendar. With its intuitive UI and efficient task capturing capabilities, Task2Calendar enhances productivity by organizing your tasks seamlessly.
+  <a>
+    <img src="icons/icon.png" alt="Logo" width="220" height="220">
+  </a>
 
-## Features
-- **Task Clipping**: Easily clip tasks from any web page.
-- **Calendar Integration**: Export tasks directly to your Google or Apple calendar.
-- **UI Design**: A user-friendly interface with simple navigation.
-- **Local Storage**: Store your tasks locally for quick access.
-- **Regular Updates**: Support for more date formats and improved task detection.
+<h1 align="center">Task2Calendar</h1>
 
-## Installation
-1. Clone the repository to your local machine.
-2. Open Chrome and navigate to `chrome://extensions/`.
-3. Enable "Developer mode" and click "Load unpacked".
-4. Select the extension directory.
+  <p align="center" style="font-style: italic;">
+    A Chrome Extension helps clip assignment tasks from webpages to your calendars
+  </p>
 
-## Usage
-- After installation, navigate to a page with tasks. (note: currently support most CIT/CIS course websites at Penn)
-- Use the extension to clip tasks and export them to your calendar.
-- Access and manage your tasks from the extension popup.
+</div>
 
-## Development
-This project uses the following technologies:
-- JavaScript
-- HTML/CSS
-- Chrome APIs
 
-## Contributing
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-## License
-[MIT License](LICENSE)
+Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT students to clip assignment tasks from webpages directly to their calendars with a single click.
 
-## Contact
-For any queries or suggestions, feel free to contact us at zairuiy@seas.upenn.edu.
+
+#### Built With
+
+[![JavaScript][JavaScript]][JavaScript-url] [![HTML][HTML]][HTML-url] [![CSS][XCSS]][CSS-url]
+
+
+
+## Usage: Boost Your Productivity
+
+
+#### Light: No need to deploy
+
+<!-- <em>Summary Dashboard</em>
+<div align="center" style="text-align:center;">
+  <img src="CaffeineTracker/Others/Dashboard.gif" alt="Dashboard" width="180">
+  <div style="margin-top: 20px;"></div>
+  <figcaption style="text-align:center"><em>Daily & weekly consumption summarized on main dashboard using a progress ring and an interactive bar chart</em></figcaption>
+</div>
+
+<div style="margin-top: 20px;"></div>
+<br> -->
+
+#### Simple: Easy to use
+
+<!-- <div align="center" style="text-align:center;">
+  <img src="CaffeineTracker/Others/AddDrink.gif" alt="Profile" width="180">
+  <div style="margin-top: 20px;"></div>
+  <figcaption style="text-align:center"><em>Users can record new drinks by picking from the default list or customizing a drink entry; all drink data stored on Firestore</em></figcaption>
+</div>
+
+<div style="margin-top: 40px;"></div>
+<br> -->
+
+
+#### Fast: Calendar automation
+
+<!-- <em>Registration & Authentication</em>
+<div align="center">
+<div align="center" style="display:flex; justify-content:center;">
+    <img src="CaffeineTracker/Others/welcome.png" height="380" style="margin-right: 20px;">
+    <img src="CaffeineTracker/Others/signin.png" height="380" style="margin-right: 20px;">
+    <img src="CaffeineTracker/Others/register.png" height="380" style="margin-right: 20px;">
+</div>
+<div style="margin-top: 20px;"></div>
+<figcaption style="text-align:center"><em>User managed through Firebase Authentication</em></figcaption>
+</div> -->
+
+<div style="margin-top: 40px;"></div>
+<br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Inspiration -->
+## Inspiration
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+This Chrome Extension was developed by Hao and Zairui for the productivity-boosting competition at the 2024 UPenn MCIT Hackathon.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[JavaScript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white
+[JavaScript-url]: https://www.javascript.com/
+[HTML]: https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML-url]: https://html.com/
+[CSS]: https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://css3.com/
