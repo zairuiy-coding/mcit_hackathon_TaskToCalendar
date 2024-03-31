@@ -96,7 +96,9 @@ It won the second place in UPenn MCIT Hackthon 2024 themed in productivity-boost
 <!-- Inspiration -->
 ## Inspiration
 This project was inspired by the famous academic tool [Zotero](https://github.com/zotero/zotero).
+
 🎖️ Zotero --> clip academic research into your bibliography 📄
+
 🎖️ Task2Calendar --> clip academic assignments into your calendar 📆
 
 
