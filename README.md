@@ -22,6 +22,12 @@
 
 Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT students to clip assignment tasks from webpages directly to their calendars with a single click.
 
+It won the second place in UPenn MCIT Hackthon 2024 themed in productivity-boosting. 🏆
+
+#### Developers
+👩🏻‍💻 [@tanhaow] (https://www.github.com/tanhaow)
+👩🏻‍💻 [@zairuiy-coding] (https://www.github.com/zairuiy-coding)
+
 
 #### Built With
 
@@ -29,22 +35,21 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 
 
-## Boost Your Productivity
+## Easy to Use
 
 
-#### Light - No need to deploy
+#### ⚡️ Light - No need to deploy
 
-<!-- <em>Summary Dashboard</em>
 <div align="center" style="text-align:center;">
-  <img src="CaffeineTracker/Others/Dashboard.gif" alt="Dashboard" width="180">
+  <img src="demo/setupdemo.gif" alt="Demo" width="280" height="auto">
   <div style="margin-top: 20px;"></div>
-  <figcaption style="text-align:center"><em>Daily & weekly consumption summarized on main dashboard using a progress ring and an interactive bar chart</em></figcaption>
+  <figcaption style="text-align:center"><em>Usage: open Google Chrome -> go to Extension -> click Load Unpacked -> selection Task2Calendar.</em></figcaption>
 </div>
 
-<div style="margin-top: 20px;"></div>
-<br> -->
+<div style="margin-top: 40px;"></div>
+<br>
 
-#### Simple - Easy to use
+#### 🙌 Simple - Boost your productivity
 
 <div align="center" style="text-align:center;">
   <img src="demo/coursewebpage1.gif" alt="Demo" width="280" height="auto">
@@ -74,18 +79,14 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 <div style="margin-top: 40px;"></div>
 <br>
 
-#### Fast - Calendar automation
+#### 🌊 Fast - Calendar automation
 
-<!-- <em>Registration & Authentication</em>
-<div align="center">
-<div align="center" style="display:flex; justify-content:center;">
-    <img src="CaffeineTracker/Others/welcome.png" height="380" style="margin-right: 20px;">
-    <img src="CaffeineTracker/Others/signin.png" height="380" style="margin-right: 20px;">
-    <img src="CaffeineTracker/Others/register.png" height="380" style="margin-right: 20px;">
+
+<div align="center" style="text-align:center;">
+  <img src="/demo/calenderexport.gif" alt="Demo" width="280" height="auto">
+  <div style="margin-top: 20px;"></div>
+  <figcaption style="text-align:center"><em>Export all tasks to your calender (.ics) with a simple click.</em></figcaption>
 </div>
-<div style="margin-top: 20px;"></div>
-<figcaption style="text-align:center"><em>User managed through Firebase Authentication</em></figcaption>
-</div> -->
 
 <div style="margin-top: 40px;"></div>
 <br>
@@ -94,16 +95,9 @@ Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT
 
 <!-- Inspiration -->
 ## Inspiration
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-This Chrome Extension was developed by Hao and Zairui for the productivity-boosting competition at the 2024 UPenn MCIT Hackathon.
+This project was inspired by the famous academic tool [Zotero](https://github.com/zotero/zotero).
+🎖️ Zotero --> clip academic research into your bibliography 📄
+🎖️ Task2Calendar --> clip academic assignments into your calendar 📆
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
