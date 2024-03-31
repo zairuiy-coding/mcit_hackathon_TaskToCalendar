@@ -22,16 +22,18 @@
 
 Task2Calendar is lightweight Chrome Extension tailored especially for UPenn MCIT students to clip assignment tasks from webpages directly to their calendars with a single click.
 
-It won the second place in UPenn MCIT Hackthon 2024 themed in productivity-boosting. 🏆
-
-#### Developers
-👩🏻‍💻 [@tanhaow] (https://www.github.com/tanhaow)
-👩🏻‍💻 [@zairuiy-coding] (https://www.github.com/zairuiy-coding)
+It was a winner of UPenn MCIT Hackthon 2024 for its excellence in productivity-boosting. 🏆
 
 
-#### Built With
+#### Built With:
 
 [![JavaScript][JavaScript]][JavaScript-url] [![HTML][HTML]][HTML-url] [![CSS][CSS]][CSS-url]
+
+#### Built By:
+
+👩🏻‍💻 [@tanhaow] (https://www.github.com/tanhaow)
+
+👩🏻‍💻 [@zairuiy-coding] (https://www.github.com/zairuiy-coding)
 
 
 
