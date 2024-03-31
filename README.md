@@ -30,7 +30,8 @@ It was a winner of UPenn MCIT Hackthon 2024 for its excellence in productivity-b
 [![JavaScript][JavaScript]][JavaScript-url] [![HTML][HTML]][HTML-url] [![CSS][CSS]][CSS-url]
 
 #### Built By:
- [@tanhaow](https://www.github.com/tanhaow) 👩🏻‍💻 + 👩🏻‍💻 [@zairuiy-coding](https://www.github.com/zairuiy-coding)
+👩🏻‍💻 + 👩🏻‍💻  [@tanhaow](https://www.github.com/tanhaow)  [@zairuiy-coding](https://www.github.com/zairuiy-coding)
+
 
 
 
