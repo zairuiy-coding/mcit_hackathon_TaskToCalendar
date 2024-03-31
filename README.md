@@ -31,9 +31,9 @@ It was a winner of UPenn MCIT Hackthon 2024 for its excellence in productivity-b
 
 #### Built By:
 
-👩🏻‍💻 [@tanhaow] (https://www.github.com/tanhaow)
+👩🏻‍💻 [@tanhaow](https://www.github.com/tanhaow)
 
-👩🏻‍💻 [@zairuiy-coding] (https://www.github.com/zairuiy-coding)
+👩🏻‍💻 [@zairuiy-coding](https://www.github.com/zairuiy-coding)
 
 
 
