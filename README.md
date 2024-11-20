@@ -52,7 +52,7 @@ It won second place in UPenn MCIT Hackathon 2024 themed in productivity-boosting
 #### 🙌 Simple - Boost your productivity
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursewebpage1.gif" alt="Demo" width="280" height="auto">
+  <img src="demo/coursewebpage1.gif" alt="Demo" width="380" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar helps clip assignment from course webpage.</em></figcaption>
 </div>
@@ -61,7 +61,7 @@ It won second place in UPenn MCIT Hackathon 2024 themed in productivity-boosting
 <br>
 
 <div align="center" style="text-align:center;">
-  <img src="demo/coursewebpage2.gif" alt="Demo" width="280" height="auto">
+  <img src="demo/coursewebpage2.gif" alt="Demo" width="380" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Task2Calendar works with multiple types of webpage.</em></figcaption>
 </div>
@@ -71,7 +71,7 @@ It won second place in UPenn MCIT Hackathon 2024 themed in productivity-boosting
 
 
 <div align="center" style="text-align:center;">
-  <img src="/demo/coursewebpage3.gif" alt="Demo" width="280" height="auto">
+  <img src="/demo/coursewebpage3.gif" alt="Demo" width="380" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>When it comes to certain case that task name and due date aare not displayed on a single page, Task2Calendar allows the flexibility for user to add info manually.</em></figcaption>
 </div>
@@ -83,7 +83,7 @@ It won second place in UPenn MCIT Hackathon 2024 themed in productivity-boosting
 
 
 <div align="center" style="text-align:center;">
-  <img src="/demo/calenderexport.gif" alt="Demo" width="280" height="auto">
+  <img src="/demo/calenderexport.gif" alt="Demo" width="380" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Export all tasks to your calender (.ics) with a simple click.</em></figcaption>
 </div>
