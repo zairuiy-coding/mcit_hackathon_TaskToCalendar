@@ -41,7 +41,7 @@ It won second place in UPenn MCIT Hackathon 2024 themed in productivity-boosting
 #### ⚡️ Light - No need to deploy
 
 <div align="center" style="text-align:center;">
-  <img src="demo/setupdemo.gif" alt="Demo" width="280" height="auto">
+  <img src="demo/setupdemo.gif" alt="Demo" width="380" height="auto">
   <div style="margin-top: 20px;"></div>
   <figcaption style="text-align:center"><em>Usage: open Google Chrome -> go to Extension -> click Load Unpacked -> selection Task2Calendar.</em></figcaption>
 </div>
